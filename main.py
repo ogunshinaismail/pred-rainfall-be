@@ -48,7 +48,7 @@ def get_prediction(data: PredictionInput):
     try:
         # Test with hardcoded data
         result = predict_rainfall(data.features)
-        return {"prediction": result}
+        return {"prediction": float(result)}  # Convert NumPy float32 to Python float
     except Exception as e:
         print(f"Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
