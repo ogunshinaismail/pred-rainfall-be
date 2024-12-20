@@ -47,8 +47,7 @@ def predict_rainfall(input_features):
 def get_prediction(data: PredictionInput):
     try:
         # Test with hardcoded data
-        test_input = [0.25, 0.5, 0.75, 1.0, 1.25]
-        result = predict_rainfall(test_input)
+        result = predict_rainfall(data.features)
         return {"prediction": result}
     except Exception as e:
         print(f"Error: {str(e)}")
