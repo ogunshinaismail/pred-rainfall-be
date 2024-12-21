@@ -50,8 +50,8 @@ def predict_rainfall(input_features):
     prediction = model.predict(input_reshaped)
     return prediction[0][0]
 
-# API endpoint for prediction
 
+# API endpoint for prediction
 
 @app.post("/predict/")
 def get_prediction(data: PredictionInput):
@@ -62,6 +62,15 @@ def get_prediction(data: PredictionInput):
     except Exception as e:
         print(f"Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+# Health check
+
+@app.get("/")
+def root():
+    return {"status": "running"}
+
 
 
 if __name__ == "__main__":
